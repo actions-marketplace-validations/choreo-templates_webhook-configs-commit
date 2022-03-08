@@ -3,11 +3,12 @@ import axios from "axios";
 class BallerinaTriggerService {
   _ballerinaCentralAPIURL;
 
-  constructor(env, id, isHttpBased) {
+  constructor(env, id, isHttpBased, triggerChannels) {
     this.env = env;
     this._ballerinaCentralAPIURL = this.getCentralAPIURLByEnv();
     this.id = id;
     this.isHttpBased = isHttpBased;
+    this.triggerChannels = triggerChannels;
   }
 
   async getFilteredTriggers() {
@@ -24,7 +25,7 @@ class BallerinaTriggerService {
       if (triggers.serviceTypes) {
         triggers.serviceTypes.forEach((serviceType) => {
           const serviceTypeName = serviceType.name;
-          Object.values(triggers).filter((triggerChannel) => {
+          Object.values(this.triggerChannels).filter((triggerChannel) => {
             if (serviceTypeName.includes(triggerChannel)) {
               filteredBallerinaServices.push(serviceType);
             }

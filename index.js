@@ -11,6 +11,8 @@ try {
   const branch = core.getInput("branch");
   const isHttpBased = core.getInput("isHttpBased");
   const ballerinaTriggerID = parseInt(core.getInput("ballerinaTriggerID"));
+  const triggerChannels = core.getInput("triggerChannels");
+
   console.log({
     token: token,
     environment: env,
@@ -23,7 +25,8 @@ try {
   const ballerinaTriggerService = new BallerinaTriggerService(
     env,
     ballerinaTriggerID,
-    isHttpBased === "true" || true
+    isHttpBased === "true" || true,
+    triggerChannels
   );
 
   const githubService = new GitHubService(token, org, repo);

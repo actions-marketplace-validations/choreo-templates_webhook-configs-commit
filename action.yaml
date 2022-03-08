@@ -29,3 +29,6 @@ inputs:
   isHttpBased:
     required: true
     description: 'The flag to indicate whether the webhook is http based or not'
+  triggerChannels:
+    required: true
+    description: 'The trigger channels'
