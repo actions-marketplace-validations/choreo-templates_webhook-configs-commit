@@ -13,10 +13,10 @@ class BallerinaTriggerService {
   async getFilteredTriggers() {
     console.log("getting filtered triggers ......");
     try {
-      const triggers = (await this.getTriggersByID(this.id)) || [];
-      console.log("Triggers size : ", triggers.length);
+      const triggers = await this.getTriggersByID(this.id);
+      console.log("Triggers size : ", triggers.serviceTypes.length);
 
-      if (!triggers.length) {
+      if (!triggers.serviceTypes.length) {
         return new Error("No triggers found");
       }
       const filteredBallerinaServices = [];
