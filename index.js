@@ -5,7 +5,7 @@ import { triggerTemplateHbs } from "./src/config/constants.js";
 
 try {
   const token = core.getInput("token");
-  const environment = core.getInput("environment");
+  const env = core.getInput("environment");
   const org = core.getInput("org");
   const repo = core.getInput("repo");
   const branch = core.getInput("branch");
@@ -13,7 +13,7 @@ try {
   const ballerinaTriggerID = parseInt(core.getInput("ballerinaTriggerID"));
   console.log({
     token: token,
-    environment: environment,
+    environment: env,
     org: org,
     repo: repo,
     branch: branch,
@@ -21,7 +21,7 @@ try {
     ballerinaTriggerID: ballerinaTriggerID,
   });
   const ballerinaTriggerService = new BallerinaTriggerService(
-    environment,
+    env,
     ballerinaTriggerID,
     isHttpBased === "true" || true
   );
