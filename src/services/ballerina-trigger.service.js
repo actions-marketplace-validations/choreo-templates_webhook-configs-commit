@@ -11,8 +11,10 @@ class BallerinaTriggerService {
   }
 
   async getFilteredTriggers() {
+    console.log("getting filtered triggers ......");
     try {
-      const triggers = await this.getTriggersByID(this.id);
+      const triggers = (await this.getTriggersByID(this.id)) || [];
+      console.log("Triggers size : ", triggers.length);
       const filteredBallerinaServices = [];
 
       if (triggers.serviceTypes) {
@@ -41,6 +43,7 @@ class BallerinaTriggerService {
   async getTriggersByID(id) {
     const PATH = `${this._ballerinaCentralAPIURL}/2.0/registry/triggers/${id}`;
     try {
+      console.log("getting triggers by id ......");
       const res = await axios.get(PATH);
 
       return res.data;
