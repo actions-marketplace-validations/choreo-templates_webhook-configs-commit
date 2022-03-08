@@ -45,7 +45,7 @@ class BallerinaTriggerService {
     try {
       console.log("getting triggers by id ......");
       const res = await axios.get(PATH);
-
+      console.log("Triggers  data : ", res.data);
       return res.data;
     } catch (e) {
       console.error(
