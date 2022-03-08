@@ -51,18 +51,21 @@ try {
               core.setOutput("status", "failure");
               console.error(`Error: ${e}`);
               core.setOutput("error", e.message);
+              throw e;
             });
         })
         .catch((e) => {
           core.setOutput("status", "failure");
           console.error(`Error: ${e}`);
           core.setOutput("error", e.message);
+          throw e;
         });
     })
     .catch((e) => {
       core.setOutput("status", "failure");
       console.error(`Error: ${e}`);
       core.setOutput("error", e.message);
+      throw e;
     });
 } catch (e) {
   core.setOutput("choreo-webhook-config-commit-status", "failed");
