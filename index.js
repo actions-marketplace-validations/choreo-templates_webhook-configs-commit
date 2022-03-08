@@ -1,7 +1,7 @@
 import * as core from "@actions/core";
-import { BallerinaTriggerService } from "./src/services/ballerina-trigger.service";
-import { GitHubService } from "./src/services/github.service";
-import { triggerTemplateHbs } from "./src/config/constants";
+import { BallerinaTriggerService } from "./src/services/ballerina-trigger.service.js";
+import { GitHubService } from "./src/services/github.service.js";
+import { triggerTemplateHbs } from "./src/config/constants.js";
 
 try {
   const token = core.getInput("token");
