@@ -8,7 +8,7 @@ class BallerinaTriggerService {
     this._ballerinaCentralAPIURL = this.getCentralAPIURLByEnv();
     this.id = id;
     this.isHttpBased = isHttpBased;
-    this.triggerChannels = triggerChannels;
+    this.triggerChannels = JSON.parse(triggerChannels);
   }
 
   async getFilteredTriggers() {
