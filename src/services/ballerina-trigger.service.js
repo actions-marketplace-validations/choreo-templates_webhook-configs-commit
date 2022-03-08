@@ -24,7 +24,7 @@ class BallerinaTriggerService {
       if (triggers.serviceTypes) {
         triggers.serviceTypes.forEach((serviceType) => {
           const serviceTypeName = serviceType.name;
-          triggers.filter((triggerChannel) => {
+          Object.values(triggers).filter((triggerChannel) => {
             if (serviceTypeName.includes(triggerChannel)) {
               filteredBallerinaServices.push(serviceType);
             }
