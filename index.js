@@ -15,7 +15,7 @@ try {
   const ballerinaTriggerService = new BallerinaTriggerService(
     environment,
     ballerinaTriggerID,
-    isHttpBased === "true"
+    isHttpBased === "true" || true
   );
 
   const githubService = new GitHubService(token, org, repo);
