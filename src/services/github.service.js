@@ -11,30 +11,30 @@ class GitHubService {
   }
 
   async createBranch(branch, headBranch = "main") {
-    const isBranchExists = await this.isBranchExists(branch);
-    if (isBranchExists) return;
-
-    console.log(`Creating branch ${branch} in ${this.org}/${this.repo}`);
-    console.log(`Getting head branch: ${headBranch} sha`);
-    const referenceRes = await this.octokit.request(
-      "GET /repos/{owner}/{repo}/git/ref/{ref}",
-      {
-        owner: this.org,
-        repo: this.repo,
-        ref: `heads/${headBranch}`,
-      }
-    );
-    const ref = referenceRes?.data;
-    const sha = ref?.object?.sha;
-    console.log(`Head branch sha: ${sha}`);
-    if (!sha) {
-      return new Error(
-        `Head branch ${headBranch} does not exist in ${this.org}/${this.repo}`
-      );
-    }
-    console.log(`Creating branch ${branch} with sha ${sha}`);
-
     try {
+      const isBranchExists = await this.isBranchExists(branch);
+      if (isBranchExists) return;
+
+      console.log(`Creating branch ${branch} in ${this.org}/${this.repo}`);
+      console.log(`Getting head branch: ${headBranch} sha`);
+      const referenceRes = await this.octokit.request(
+        "GET /repos/{owner}/{repo}/git/ref/{ref}",
+        {
+          owner: this.org,
+          repo: this.repo,
+          ref: `heads/${headBranch}`,
+        }
+      );
+      const ref = referenceRes?.data;
+      const sha = ref?.object?.sha;
+      console.log(`Head branch sha: ${sha}`);
+      if (!sha) {
+        return new Error(
+          `Head branch ${headBranch} does not exist in ${this.org}/${this.repo}`
+        );
+      }
+      console.log(`Creating branch ${branch} with sha ${sha}`);
+
       const response = await this.octokit.request(
         "POST /repos/{owner}/{repo}/git/refs",
         {
