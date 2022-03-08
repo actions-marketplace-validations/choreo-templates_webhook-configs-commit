@@ -11,7 +11,15 @@ try {
   const branch = core.getInput("branch");
   const isHttpBased = core.getInput("isHttpBased");
   const ballerinaTriggerID = parseInt(core.getInput("ballerinaTriggerID"));
-
+  console.log({
+    token: token,
+    environment: environment,
+    org: org,
+    repo: repo,
+    branch: branch,
+    isHttpBased: isHttpBased,
+    ballerinaTriggerID: ballerinaTriggerID,
+  });
   const ballerinaTriggerService = new BallerinaTriggerService(
     environment,
     ballerinaTriggerID,
