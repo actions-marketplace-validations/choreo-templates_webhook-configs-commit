@@ -13,15 +13,8 @@ try {
   const ballerinaTriggerID = parseInt(core.getInput("ballerinaTriggerID"));
   const triggerChannels = core.getInput("triggerChannels");
 
-  console.log({
-    token: token,
-    environment: env,
-    org: org,
-    repo: repo,
-    branch: branch,
-    isHttpBased: isHttpBased,
-    ballerinaTriggerID: ballerinaTriggerID,
-  });
+  console.log("Trigger Channels: ", triggerChannels);
+
   const ballerinaTriggerService = new BallerinaTriggerService(
     env,
     ballerinaTriggerID,
