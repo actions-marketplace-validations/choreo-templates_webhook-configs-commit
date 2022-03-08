@@ -1,0 +1,31 @@
+name: 'Choreo Webhook Configs Commit'
+description: 'Choreo Webhook Configs Commit Action Step'
+author: WSO2
+branding:
+  icon: 'arrow-up-circle'
+  color: 'orange'
+runs:
+  using: node16
+  main: index.js
+inputs:
+  token:
+    required: true
+    description: 'The token of the user repository'
+  environment:
+    required: true
+    description: 'Choreo environment (DEV, STAGE, PROD)'
+  org:
+    required: true
+    description: 'The organization name of the user repository'
+  repo:
+      required: true
+      description: 'The name of the user repository'
+  branch:
+    required: true
+    description: 'The branch of the user repository'
+  ballerinaTriggerID:
+    required: true
+    description: 'The ballerina trigger id'
+  isHttpBased:
+    required: true
+    description: 'The flag to indicate whether the webhook is http based or not'

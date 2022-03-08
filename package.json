@@ -1,0 +1,17 @@
+{
+  "name": "webhook-configs-commit",
+  "version": "1.0.0",
+  "description": "Choreo Webhook Configs Commit Action Step",
+  "main": "index.js",
+  "repository": "https://github.com/choreo-templates/webhook-configs-commit.git",
+  "author": "Shehanka <chamodp@wso2.com>",
+  "license": "Apache 2.0",
+  "private": false,
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@octokit/core": "^3.5.1",
+    "Buffer": "^0.0.0",
+    "axios": "^0.26.0",
+    "prettier": "^2.5.1"
+  }
+}
