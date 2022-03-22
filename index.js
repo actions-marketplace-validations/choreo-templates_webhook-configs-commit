@@ -9,6 +9,7 @@ try {
   const org = core.getInput("org");
   const repo = core.getInput("repo");
   const branch = core.getInput("branch");
+  const headBranch = core.getInput("headBranch");
   const isHttpBased = core.getInput("isHttpBased");
   const ballerinaTriggerID = parseInt(core.getInput("ballerinaTriggerID"));
   const triggerChannels = core.getInput("triggerChannels");
@@ -32,7 +33,7 @@ try {
       ).toString("base64");
 
       githubService
-        .createBranch(branch)
+        .createBranch(branch, headBranch)
         .then(() => {
           githubService
             .createMultipleFiles(branch, "Choreo Webhook Configs Added", [

@@ -23,6 +23,10 @@ inputs:
   branch:
     required: true
     description: 'The branch of the user repository'
+  headBranch:
+    required: false
+    description: 'The head branch of the user repository'
+    default: 'main'
   ballerinaTriggerID:
     required: true
     description: 'The ballerina trigger id'
